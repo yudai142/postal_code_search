@@ -2,7 +2,8 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    env_file: development.env
+    environment:
+        MYSQL_ROOT_PASSWORD: password
     ports:
         - "4306:3306"
     volumes:
@@ -18,4 +19,3 @@ services:
       RAILS_ENV: development
     depends_on:
       - db
-    env_file: development.env
