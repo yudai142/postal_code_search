@@ -1,7 +1,8 @@
 version: '3.7'
 services:
   web:
-    build: .
+    build: 
+      context: .
       dockerfile: Dockerfile_nginx
     volumes:
       - ./public:/usr/share/nginx/public:cached
@@ -10,9 +11,7 @@ services:
     depends_on:
       - app
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile_production
+    build: .
     command: bundle exec rails s -b 0.0.0.0
     volumes:
       - .:/app:cached
