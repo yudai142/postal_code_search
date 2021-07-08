@@ -2,6 +2,7 @@ version: '3.7'
 services:
   web:
     build: .
+      dockerfile: Dockerfile_nginx
     volumes:
       - ./public:/usr/share/nginx/public:cached
     ports:
@@ -22,11 +23,11 @@ services:
     env_file: development.env
     environment:
       RAILS_ENV: production
-  db:
-    image: mysql:5.7.27
-    volumes:
-      - db-volume:/var/lib/mysql
-    env_file: development.env
+  # db:
+  #   image: mysql:5.7.27
+  #   volumes:
+  #     - db-volume:/var/lib/mysql
+  #   env_file: development.env
     # environment:
     #   MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 volumes:
