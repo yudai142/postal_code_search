@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.7.3-buster
+      - image: circleci/ruby:2.7.3
     steps:
       - checkout
       - setup_remote_docker:
